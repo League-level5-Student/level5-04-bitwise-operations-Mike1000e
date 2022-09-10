@@ -32,17 +32,18 @@ public class _02_BinaryToDecimal {
     int convertBinaryStringToDecimalInt(String binStr) {
     	int convert = 0;
     	int numberAmount = binStr.length();
+    	int highest = 1;
     	char[] array  = binStr.toCharArray();
-    	for(int i = array.length; i>0 ;i--) {
-    		char arrayz = Integer.parseInt(array[i]);
+    	for(int i = array.length-1; i>=0 ;i--) {
+    		int countDown = array.length;
+    	
     		
-    		if() {
-    			int add = 1;
-    			for(int j = 0; j > i-1; j++) {
-    				add = add*2;
-    			}
-    			convert = convert+add;
+    		
+    		
+    		if(array[i] == '1' ) {
+    			convert = convert+highest;
     		}
+    		highest = highest*2;
     	}
 		return convert;
     }

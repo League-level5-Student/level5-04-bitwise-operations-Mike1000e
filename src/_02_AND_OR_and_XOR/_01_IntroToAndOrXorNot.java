@@ -97,7 +97,7 @@ public class _01_IntroToAndOrXorNot {
          * Putting a '0' in mask will keep that bit the same
          */
         num = 0b00000011;           //   3 decimal. bit 0 and 1 set
-        mask = 0b11000001;          // -63 decimal. bit 6, 7 and 0 set
+        mask = 0b11000001;     v     // -63 decimal. bit 6, 7 and 0 set
         result = (num ^ mask);
         System.out.println();
         System.out.println("  00000011");

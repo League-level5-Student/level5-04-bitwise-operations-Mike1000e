@@ -27,10 +27,67 @@ import org.junit.jupiter.api.Test;
  *      11111111 11111111 11111111 11110001   // rotate left by 1
  */
 public class _02_Rotate {
-    
+    	
     int rotateLeft(int value, int rotateAmount) {
-        return -1;
-    }
+    	int binaryNum = value;
+    	 String binaryStr = "";
+         
+
+         do {
+           
+             int quotient = binaryNum >>> 1;
+
+            
+             if( binaryNum % 2 != 0 ){
+                 binaryStr = '1' + binaryStr;
+             } else {
+                 binaryStr = '0' + binaryStr;
+             }
+
+             binaryNum = quotient;
+
+            
+         } while( binaryNum != 0 );
+         int finalValue = Integer.parseInt(binaryStr);
+         
+         finalValue = finalValue << rotateAmount;
+         
+         
+         
+         
+      	int convert = 0;
+    	int numberAmount = Integer.toBinaryString(finalValue).length();
+    	int highest = 1;
+    	char[] array  = Integer.toBinaryString(finalValue).toCharArray();
+    	boolean isNegative = false;
+    	
+    	if(array[array.length-1]=='1') {
+    		isNegative = true;
+    		array[array.length-1] = 0;
+    	}
+    	
+    	String arrayStr = array.toString();
+    	finalValue = Integer.parseInt(arrayStr);
+    	finalValue = ~finalValue;
+    	
+    	array  = Integer.toBinaryString(finalValue).toCharArray();
+    	array[array.length-1] = 1;
+    	
+    	for(int i = array.length-1; i>=0 ;i--) {
+    		
+    		if(array[i] == '1' && !(i == array.length-1)) {
+    			convert = convert+highest;
+    		}
+    		highest = highest*2;
+    	}
+		
+    	
+    	return convert*-1;
+  
+        
+    
+}
+    
     
     int rotateRight(int value, int rotateAmount) {
         return -1;

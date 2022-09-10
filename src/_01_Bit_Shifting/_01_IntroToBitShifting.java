@@ -54,6 +54,7 @@ public class _01_IntroToBitShifting {
     }
     
     static String printBin(int val) {
+    	
         return String.format("%32s", Integer.toBinaryString(val)).replace(' ', '0') + " (" + val + ")";
     }
 }
