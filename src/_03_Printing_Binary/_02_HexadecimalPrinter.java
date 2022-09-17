@@ -52,7 +52,18 @@ public class _02_HexadecimalPrinter implements ActionListener {
      * You don't have to handle negative numbers unless you want the challenge!
      */
     String binaryToHex(String binaryStr) {
+    	String retured = "0x";
+    	String four = "";
+    	int countfour =4;
+    	char[] charray = binaryStr.toCharArray();
+    	for(int i = charray.length-1; i>=0; i--) {
+    		
+    		
+    	}
+    	
+    	
         return "-";
+        
     }
     
     String binaryToDec(String binaryStr) {
