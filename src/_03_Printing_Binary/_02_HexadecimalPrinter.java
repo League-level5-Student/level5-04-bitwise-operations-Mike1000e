@@ -52,21 +52,115 @@ public class _02_HexadecimalPrinter implements ActionListener {
      * You don't have to handle negative numbers unless you want the challenge!
      */
     String binaryToHex(String binaryStr) {
-    	String retured = "0x";
-    	String four = "";
-    	int countfour =4;
+    	String returned = " ";
+    	
+    	char[] four = new char[4];
+    	int countfour = 4;
     	char[] charray = binaryStr.toCharArray();
+    	
     	for(int i = charray.length-1; i>=0; i--) {
     		
+    		if(!(countfour==0)) {
+    			System.out.println(four[countfour-1]);
+    			four[countfour-1] = charray[i];
+    			System.out.println(four[countfour-1]);
+
+    			countfour--;
+    		}else {
+    			//converting
+    			int convert = 0;
+    	    	int numberAmount = four.length;
+    	    	int highest = 1;
+    	    	for(int j = four.length-1; j>=0 ;j--) {
+    	    		
+    	    		if(four[j] == '1' ) {
+    	    			convert = convert+highest;
+    	    		}
+    	    		highest = highest*2;
+    	    	}
+    	    	
+    	    	String adding = "";  
+    	    	adding = convert + "";
+    			if(convert ==10 ) {
+    				adding = "A"; 
+    				}else if (convert ==11) {
+    					adding = "B";
+    				}else if (convert ==12) {
+    					adding = "C";
+    				}else if (convert ==13) {
+    					adding = "D";
+    				}else if (convert ==14) {
+    					adding = "E";
+    				}else if (convert ==15) {
+    					adding = "F";
+    				}
+    		//convert done
+    			
+    			//adding should be converted to hex
+
+    			returned = adding + returned;
+    			System.out.println(returned);
+    			countfour = 4;
+    			
+    			System.out.println(four[countfour-1]);
+    			four[countfour-1] = charray[i];
+    			System.out.println(four[countfour-1]);
+
+    			countfour--;
+    		}
+    		if(i==0) {
+    			
+    			int convert = 0;
+    	    	int numberAmount = four.length;
+    	    	int highest = 1;
+    	    	for(int j = four.length-1; j>=0 ;j--) {
+    	    		
+    	    		if(four[j] == '1' ) {
+    	    			convert = convert+highest;
+    	    		}
+    	    		highest = highest*2;
+    	    	}
+    	    	
+    	    	String adding = "";  
+    	    	adding = convert + "";
+    			if(convert ==10 ) {
+    				adding = "A"; 
+    				}else if (convert ==11) {
+    					adding = "B";
+    				}else if (convert ==12) {
+    					adding = "C";
+    				}else if (convert ==13) {
+    					adding = "D";
+    				}else if (convert ==14) {
+    					adding = "E";
+    				}else if (convert ==15) {
+    					adding = "F";
+    				}
+    		//convert done
+    			
+    			//adding should be converted to hex
+
+    			//adding should be converted to hex
     		
+    			returned = adding + returned;
+    			System.out.println(returned);
+    			countfour = 4;
+    			
+    		}
     	}
     	
-    	
-        return "-";
+        return "0x" + returned;
         
     }
     
+    
+    
+    
+    
+    
+    
     String binaryToDec(String binaryStr) {
+    	
         return "-";
     }
 
