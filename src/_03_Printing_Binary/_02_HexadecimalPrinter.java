@@ -160,9 +160,26 @@ public class _02_HexadecimalPrinter implements ActionListener {
     
     
     String binaryToDec(String binaryStr) {
+    	int convert = 0;
+    	int numberAmount = binaryStr.length();
+    	int highest = 1;
+    	char[] array  = binaryStr.toCharArray();
+    	for(int i = array.length-1; i>=0 ;i--) {
+    		int countDown = array.length;
     	
-        return "-";
+    		
+    		
+    		
+    		if(array[i] == '1' ) {
+    			convert = convert+highest;
+    		}
+    		highest = highest*2;
+    	}
+    	
+		return convert + "";
     }
+       
+    
 
     /*
      * ASCII values are exactly 8 bits so return '-' if there isn't.

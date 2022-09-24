@@ -32,7 +32,7 @@ package _02_AND_OR_and_XOR;
  * 
  * An example,
  *      0 1 0 1     // 5 decimal
- *    & 1 0 0 1     // 9 decimal
+ *    | 1 0 0 1     // 9 decimal
  *    ---------
  *      1 1 0 1     // 13 decimal. If there is a 1 in any column, it produces
  *                  // a 1 in the same column in the result.

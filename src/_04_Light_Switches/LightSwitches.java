@@ -55,6 +55,10 @@ public class LightSwitches implements GameControlScene {
      * index = 6        // return true if pink is on (bit 6 == 1)
      */
     boolean isLightOn(int index) {
+    	int check = lightsOnOff >> index;
+    	if(check == 1) {
+    		return true;
+    	}
         return false;
     }
     
@@ -63,7 +67,18 @@ public class LightSwitches implements GameControlScene {
      * index = 4        // turn off yellow only (set bit 4 = 1)
      */
     void turnLightOn(int index) {
-        
+    	char[] charray = new char[8];
+    	for(int i = 0; i<8; i++) {
+    		charray[i] = 0;
+    		if(i == index) {
+    			charray[i] =1;
+    		}
+    		
+    	}
+    	String number = new String(charray);
+		int adding = Integer.parseInt(number);
+    	lightsOnOff = lightsOnOff|adding;
+    	
     }
     
     /*
@@ -71,7 +86,18 @@ public class LightSwitches implements GameControlScene {
      * index = 0        // turn off blue only (set bit 0 = 0)
      */
     void turnLightOff(int index) {
-        
+    	char[] charray = new char[8];
+    	for(int i = 0; i<8; i++) {
+    		charray[i] = 1;
+    		if(i == index) {
+    			charray[i] =0;
+    		}
+    		
+    	}
+    	String number = new String(charray);
+		int adding = Integer.parseInt(number);
+    	lightsOnOff = lightsOnOff&adding;
+    	
     }
     
     /*
@@ -79,7 +105,7 @@ public class LightSwitches implements GameControlScene {
      * lightsBitmap = 0b01100110  // lights 1, 2, 5, 6 on
      */
     void turnMultiLightsOn(int lightsBitmap) {
-        
+    	lightsOnOff = lightsOnOff|lightsBitmap;
     }
     
     /*
@@ -87,7 +113,7 @@ public class LightSwitches implements GameControlScene {
      * lightsBitmap = 0b10000001  // lights 0, 7 off
      */
     void turnMultiLightsOff(int lightsBitmap) {
-        
+    	lightsOnOff = lightsOnOff&lightsBitmap;
     }
     
     /*
@@ -100,7 +126,7 @@ public class LightSwitches implements GameControlScene {
      *                               orange(3) and yellow(4) on
      */
     void toggleLights(int lightsBitmap) {
-        
+        lightsOnOff = lightsOnOff^lightsBitmap;
     }
     
     void runLightSequence1() {
